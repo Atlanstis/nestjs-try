@@ -13,6 +13,5 @@ export const getConfig = () => {
   const yamlPath = path.join(process.cwd(), `./.config/.${environment}.yaml`);
   const file = fs.readFileSync(yamlPath, 'utf8');
   const config = parse(file);
-  console.log(config);
   return config;
 };

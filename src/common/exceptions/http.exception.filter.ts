@@ -15,7 +15,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<FastifyReply>();
     const request = ctx.getRequest<FastifyRequest>();
     const status = exception.getStatus();
-    console.log('http');
+
     // 处理业务异常
     if (exception instanceof BusinessException) {
       const error = exception.getResponse();

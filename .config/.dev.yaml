@@ -1,2 +1,4 @@
 TEST_VALUE:
   name: dev
+SWAGGER:
+  enable: true

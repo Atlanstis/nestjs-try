@@ -14,7 +14,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<FastifyReply>();
     const request = ctx.getRequest<FastifyRequest>();
-    console.log('all');
     request.log.error(exception);
 
     // 非 HTTP 标准异常的处理。
