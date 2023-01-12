@@ -10,6 +10,7 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { BusinessException } from 'src/common';
 
 @Controller('user')
 export class UserController {
@@ -22,6 +23,24 @@ export class UserController {
 
   @Get()
   findAll() {
+    return this.userService.findAll();
+  }
+
+  @Get('findError')
+  findError() {
+    const a: any = {};
+    console.log(a.b.c);
+    return this.userService.findAll();
+  }
+
+  @Get('findBusinessError')
+  findBusinessError() {
+    const a: any = {};
+    try {
+      console.log(a.b.c);
+    } catch (error) {
+      throw new BusinessException('你这个参数错了');
+    }
     return this.userService.findAll();
   }
 
